@@ -142,9 +142,6 @@ tfoot a {
     padding: 8px 16px;
     transition: background .3s, color .3s;
     border-radius: 24px;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
 }
 
 tfoot a:hover {
@@ -265,6 +262,7 @@ footer {
     }
     table thead { display: none; }
     table, table tbody, table tr, table td, table tfoot { display: block; width: 100%; }
+    tfoot a {width: auto;}
     table tr {
         margin-bottom: 12px;
         border: 1px solid #ddd;
