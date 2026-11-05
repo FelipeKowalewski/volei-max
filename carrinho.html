@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrinho | VôleiMax</title>
+    <link rel="icon" href="imagens/Volleymaniacs.jpg" type="image/jpeg">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="carrinho.css">
+</head>
+<body>
+    <header>
+        <div class="container topo">
+            <a href="index.html" class="logo">Vôlei<span>Max</span></a>
+            <nav aria-label="Menu principal">
+                <ul class="menu">
+                <li><a href="index.html">Página Inicial</a></li>
+                <li><a href="login.html">Login</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <main>
+        <div class="container">
+            <h2 class="titulo-secao">Seu carrinho</h2>
+            <table>
+                <caption>Produtos no carrinho</caption>
+                <thead>
+                    <tr>
+                        <th scope="col">Produto</th>
+                        <th scope="col">Preço</th>
+                        <th scope="col">Quantidade</th>
+                        <th scope="col">Subtotal</th>
+                        <th scope="col"><span>Remover</span></th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr>
+                        <td data-label="Produto">
+                            <a href="produto1.html">
+                                <div class="card">
+                                    <img src="imagens/BOLA.png" alt="Bola de vôlei Pênalty 8.0">
+                                    <span>Bola de Vôlei PENALTY</span>
+                                </div>
+                            </a>
+                        </td>
+                        <td data-label="Preço">R$ 249,90</td>
+                        <td data-label="Quantidade">
+                            <input type="number" min="1" value="1" aria-label="Quantidade">
+                        </td>
+                        <td data-label="Subtotal">R$ 249,90</td>
+                        <td data-label="Remover"><a href="carrinho.html" class="remover"><img src="imagens/lixeira.png" class="lixeira"></a></td>
+                    </tr>
+
+                    <tr>
+                        <td data-label="Produto">
+                            <a href="produto2.html">
+                                <div class="card">
+                                    <img src="imagens/joelheira.jpg" alt="Joelheira de vôlei">
+                                    <span>Joelheira Profissional</span>
+                                </div>
+                            </a>
+                        </td>
+                        <td data-label="Preço">R$ 179,90</td>
+                        <td data-label="Quantidade">
+                            <input type="number" min="1" value="1" aria-label="Quantidade">
+                        </td>
+                        <td data-label="Subtotal">R$ 179,90</td>
+                        <td data-label="Remover"><a href="carrinho.html" class="remover"><img src="imagens/lixeira.png" class="lixeira"></a></td>
+                    </tr>
+                </tbody>
+
+                <tfoot>
+                    <tr>
+                        <th scope="row" colspan="3">Total</th>
+                        <th colspan="1"><strong>R$ 429,80</strong></th>
+                        <th colspan="1"><a href="carrinho.html">Limpar Carrinho</a></th>
+                    </tr>
+                </tfoot>
+            </table>
+
+            <div class="frete">
+                <label>Informe o CEP:</label>
+                <input type="text">
+                <button type="button">Calcular Frete</button>
+                <button type="submit">Finalizar Compra</button>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <p>&copy; 2026 VôleiMax &ndash; Trabalho acadêmico da dupla Felipe e Marry | Loja fictícia.</p>
+    </footer>
+</body>
+</html>

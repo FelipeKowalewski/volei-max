@@ -1,0 +1,213 @@
+:root {
+  --azul: #0b3d91;
+  --azul-claro: #e8f0fe;
+  --laranja: #ff7a00;
+  --cinza: #f4f6fa;
+  --texto: #222;
+}
+
+* { 
+    box-sizing: border-box; /*border-box faz a largura incluir o padding e a borda*/
+    margin: 0; 
+    padding: 0; 
+} 
+
+body {
+    font-family: 'Poppins', Arial, sans-serif;
+    color: var(--texto);
+    background: var(--cinza);
+    line-height: 1.6; /*altura da linha de texto*/
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+img { max-width: 100%; } /*n deixa as imgs passarem do card*/
+
+a { 
+    color: inherit; /*herdam as cores do pai*/
+    text-decoration: none;  /*tira o sublinhado*/
+} 
+ul { list-style: none; }/*tira as bolinhas das listas*/
+
+.container { 
+    width: min(1100px, 92%); /*tela grande no max 1100px, e pequena 92%*/
+    margin: auto; /*centraliza*/
+}
+
+header {
+  position: sticky;/*o cabeçalho fica grudado no topo da página*/
+  top: 0;
+  z-index: 10; /*traz o cabeçalho para frente*/
+  background: linear-gradient(180deg, var(--azul) 80%, #1b5fd1);
+  color: #fff;
+  box-shadow: 0 2px 10px rgba(0,0,0,.25);
+}
+
+.topo { /*logo e menu de nav*/
+  display: flex;/*itens lado a lado*/
+  justify-content: space-between;/*logo de um lado, menu do outro*/
+  align-items: center;
+  padding: 12px 0;
+}
+
+.logo {
+    font-size: 1.6em; 
+    font-weight: bold; 
+}
+.logo span { color: var(--laranja); } /*para o Max de volei max*/
+
+.menu { 
+    display: flex; 
+    flex-wrap: wrap; /*deixa os itens quebrarem p a linha de baixo*/
+}
+.menu li + li { /*seletor de adjacência: linha só entre os itens*/
+    border-left: 1px solid rgba(150,150,255,.4); 
+}
+
+.menu a {
+  display: block; /*a área clicável vira a caixa toda*/
+  padding: 8px 16px;
+  transition: background .3s, color .3s;
+  border-radius: 24px;
+}
+.menu a:hover { 
+    background: var(--laranja); 
+    color: #fff; 
+}
+
+.botao {
+  display: inline-block;
+  background: var(--laranja);
+  color: #fff;
+  padding: 10px 24px;
+  border-radius: 24px;
+  font-weight: 600;
+  transition: transform .2s, background .3s;
+}
+.botao:hover { /*esse é um dos itens de bônus, transform e transition*/
+    background: #e06a00; 
+    transform: scale(1.06);
+ }
+
+section { padding: 40px 0; }
+
+.titulo-secao { 
+    font-size: 1.6em; 
+    color: var(--azul); 
+    margin-bottom: 20px; 
+}
+.titulo-secao::after {/*::after(pseudo-elemento)+content cria a barrinha embaixo dos títulos e n mexe no html*/
+  content: ""; 
+  display: block;
+  width: 90px;
+  height: 4px;
+  border-radius: 10px;
+  background: var(--laranja);
+}
+
+.categorias { 
+    display: flex; 
+    flex-wrap: wrap; 
+    gap: 12px; /*espaço entre os itens*/
+}
+.categorias li a {
+  display: block;
+  background: var(--azul-claro);
+  color: var(--azul);
+  padding: 10px 20px;
+  border-radius: 20px;
+  font-weight: 600;
+  transition: background .3s, color .3s, transform .3s;
+}
+.categorias li a:hover { 
+    background: var(--azul); 
+    color: #ffc08c;
+    transform: scale(1.08); 
+}
+
+.categorias li .selected {
+    background: var(--azul); 
+    color: #ffc08c;
+    pointer-events: none;
+    cursor: not-allowed;
+}
+
+.detalhe {
+  display: grid;
+  grid-template-columns: 1fr 1fr;/*imagem de um lado, texto do outro*/
+  gap: 30px;
+  background: #fff;
+  padding: 24px;
+  border-radius: 12px;
+}
+.detalhe img { 
+    border-radius: 12px; 
+    width: 100%; 
+}
+.detalhe .preco { 
+    font-size: 1.8em; 
+    color: var(--azul); 
+    font-weight: 700; 
+    margin: 10px 0; 
+}
+
+.grid-produtos {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));  /*o navegador decide quantas colunas cabem: não precisa de @media para ter responsividade*/
+  gap: 20px;
+}
+
+.card {
+  position: relative; /*o .selo se posiciona em relação ao card*/
+  background: #fff;
+  border-radius: 12px;
+  overflow: hidden; /*sem ele a imagem fica para fora dos cantos arredondados*/
+  box-shadow: 0 2px 8px rgba(0,0,0,.12);
+  transition: transform .3s, box-shadow .3s;
+}
+.card:hover { 
+    transform: scale(1.09); 
+    box-shadow: 0 8px 18px rgba(0,0,0,.2); 
+}
+.card img { 
+    width: 100%; 
+    height: 180px; 
+    object-fit: cover; /*para as imgs n passarem das caixinhas, mantendo a proporção*/
+}
+.card .info { padding: 14px; }
+.card h3 { font-size: 1.05em; }
+.card .preco { 
+    color: var(--azul); 
+    font-weight: 700; 
+    font-size: 1.2em; 
+    margin-bottom: 10px; 
+}
+
+main {
+    padding-bottom: 50px;
+}
+
+footer {
+  background: var(--azul);
+  color: #fff;
+  text-align: center;
+  padding: 20px 0;
+  margin-top: auto;
+}
+
+@media (max-width: 700px) {
+    .topo {
+        flex-direction: column;
+        text-align: center;
+    }
+    .menu { justify-content: center; }
+    .menu a {
+        padding: 8px 10px;
+        font-size: .9em;
+    }
+    .inicio { padding: 45px 0; }
+    .inicio h1 { font-size: 1.7em; }
+    .card img { height: 130px; }
+    .detalhe { grid-template-columns: 1fr; }
+}
